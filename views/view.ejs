@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+
+        }
+        .table-data{
+            position: relative;
+            left:50px;
+            top:50px;
+        }
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<!--====form section start====-->
+<div class="table-data">
+    <table border="1" >
+        <%
+        cand.forEach(function(data){
+        %>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>occupation</th>
+            <th>address</th>
+            <th>city</th>
+            <th>state</th>
+            <th>zip</th>
+            <th>country</th>
+            <th colspan="<%=data.spokenLanguages.length%>">spokenLanguages</th>
+            <th colspan="<%=data.categories.length%>">categories</th>
+            <th colspan="<%=data.skills.length%>">skills</th>
+            <th colspan="<%=data.specialties.length%>">specialties</th>
+            <th colspan="5">Experiences</th>
+        </tr>
+
+
+        <tr>
+            <td><%=data.id %></td>
+            <td><%=data.name %></td>
+            <td><%=data.email %></td>
+            <td><%=data.phone %></td>
+            <td><%=data.occupation %></td>
+            <td><%=data.address.address1 %></td>
+            <td><%=data.address.city %></td>
+            <td><%=data.address.state %></td>
+            <td><%=data.address.zip %></td>
+            <td><%=data.address.countryID %></td>
+            <% for (var i = 0; i < data.spokenLanguages.length; i++) { %>
+            <td><%=data.spokenLanguages[i] %></td>
+            <%  }  for (var i = 0; i < data.categories.length; i++) { %>
+            <td><%=data.categories[i] %></td>
+            <%  } for (var i = 0; i < data.skills.length; i++) { %>
+            <td><%=data.skills[i] %></td>
+            <%  } for (var i = 0; i < data.specialties.length; i++) { %>
+            <td><%=data.specialties[i] %></td>
+            <%  } %>
+
+        </tr>
+        <%  }) %>
+    </table>
+</div>
+</body>
+</html>
